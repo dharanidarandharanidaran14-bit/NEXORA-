@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptitude Skills - AI Practice & Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <a href="IT home.html" class="home-btn">
+    🏠 Home
+</a>
+
+    <style>
+        :root {
+            --primary: #0062ff;
+            --primary-dark: #e08727;
+            --bg-dark: #9cb1e6;
+            --card-bg: #2956b8;
+            --text-muted: #36322f;
+            --text-light: #9ca3af;
+        }
+        
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+.home-btn {
+    text-decoration: none;
+    background: #5d6063;
+    color: white; /* font color */
+    padding: 6px 6px; /* padding size reduce */
+    border-radius: 6px;
+    border: 0px solid rgba(173, 171, 171, 0.1);
+    font-size: 0.9rem; /* reduce size*/
+    font-weight: 400;
+}
+
+.home-btn:hover {
+    background: #4d4f52;
+}
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .premium-card {
+            background-color: #274286;
+            width: 100%;
+            max-width: 540px;
+            border-radius: 4px;
+            padding: 45px 40px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110px;
+            height: 4px;
+            background-color: #0062ff;
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: var(--text-light);
+            word-spacing: 0.2em;
+        }
+
+        .diagonal-arrow {
+            color: var(--text-light);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .premium-card:hover .diagonal-arrow {
+            transform: translate(3px, -3px);
+            color: #ffffff;
+        }
+
+        .card-body-title {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .icon-box-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .icon-speech-bubble {
+            color: #0062ff;
+            font-size: 1.6rem;
+        }
+
+        .card-main-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
+
+        .card-description-text {
+            color: #8fa0dd;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.75;
+            margin-bottom: 45px;
+        }
+
+        .start-quiz-trigger-btn {
+            background: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #e65e29;
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            font-weight: 500;
+            cursor: pointer;
+            text-transform: uppercase;
+            padding: 0;
+            transition: color 0.2s ease;
+        }
+
+        .start-quiz-trigger-btn:hover {
+            color: #3b82f6;
+        }
+
+        .quiz-box-wrapper {
+            background-color: #05070c;
+            padding: 35px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid rgba(0, 98, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 98, 255, 0.15);
+        }
+
+        .quiz-box-wrapper h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .quiz-box-wrapper label { display: block; margin-top: 15px; font-size: 13px; color: var(--text-light); text-align: left; }
+        
+        .quiz-box-wrapper select, .quiz-box-wrapper button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #111827;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .quiz-box-wrapper button {
+            background-color: var(--primary);
+            font-weight: 600;
+            border: none;
+            margin-top: 20px;
+        }
+        .quiz-box-wrapper button:hover { background-color: var(--primary-dark); }
+
+        .hidden { display: none !important; }
+        .options-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        
+        .option-btn {
+            background-color: #111827 !important;
+            text-align: left !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            line-height: 1.5;
+            padding: 14px 18px !important;
+            border-radius: 6px !important;
+            color: #d1d5db !important;
+        }
+
+        .option-btn:hover { border-color: var(--primary) !important; background-color: #1f2937 !important; color: #ffffff !important; }
+        #timer { font-size: 18px; color: #3b3a3a; font-family: 'JetBrains Mono', monospace; }
+        .score-tracker { font-size: 14px; color: var(--primary); font-weight: bold; }
+        #question-text { font-size: 1.1rem; margin-top: 15px; line-height: 1.5; text-align: left; color: #f3f4f6; }
+        #final-marks { color: #34d399; font-size: 48px; margin: 10px 0; font-family: 'Space Grotesk', sans-serif; }
+
+        footer { text-align: center; padding: 30px 20px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-calculator"></i> NEXORA </div>
+    </header>
+
+    <div class="main-container">
+        <div class="premium-card" id="landing-card">
+            <div class="card-header-row">
+                <div class="quiz-meta">01 / APTITUDE</div>
+                <a href="javascript:void(0)" class="diagonal-arrow" onclick="revealConfigOptions()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            
+            <div class="card-body-title">
+                <div class="icon-box-wrapper">
+                    <i class="fa-solid fa-brain icon-speech-bubble"></i>
+                </div>
+                <h1 class="card-main-heading">Aptitude Practice</h1>
+            </div>
+
+            <p class="card-description-text">
+                Arithmetic, quantitative scenarios, logic tracking, and mathematical problem-solving templates. Complete with systematic formulas and breakdowns.
+            </p>
+
+            <button class="start-quiz-trigger-btn" onclick="revealConfigOptions()">
+                <i class="fa-regular fa-clock"></i> Start Quiz
+            </button>
+        </div>
+
+        <div class="quiz-box-wrapper hidden" id="quiz-config-panel">
+            <div id="page1">
+                <h2>Configure Assessment</h2>
+                <label for="qCount">Select Total Questions:</label>
+                <select id="qCount">
+                    <option value="10">10 Questions</option>
+                    <option value="20">20 Questions</option>
+                    <option value="30">30 Questions</option>
+                </select>
+                
+                <label for="timerVal">Time Interval Per Limit:</label>
+                <select id="timerVal">
+                    <option value="30">30 Seconds</option>
+                    <option value="45">45 Seconds</option>
+                    <option value="60">60 Seconds</option>
+                </select>
+                <button onclick="startQuiz()">Start Practice</button>
+            </div>
+
+            <div id="page2" class="hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span id="progress" style="color: var(--text-light); font-size: 13px;">Question 1</span>
+                    <span id="live-score" class="score-tracker">Marks: 0</span>
+                    <span id="timer">30s</span>
+                </div>
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 15px;">
+                <h3 id="question-text">Assembling customized arithmetic matrices...</h3>
+                <div class="options-container" id="options"></div>
+            </div>
+
+            <div id="page3" class="hidden">
+                <h2>Session Complete</h2>
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.08); margin: 20px 0;">
+                <h1 id="final-marks">0/0</h1>
+                <h3 id="final-percentage" style="color: var(--text-light); font-weight: 400; margin-bottom: 10px;">Percentage: 0%</h3>
+                <p id="performance-feedback" style="font-style: italic; color: #9ca3af; font-size: 14px; line-height: 1.5;"></p>
+                <button onclick="retryQuiz()" style="background-color: transparent; border: 1px solid rgba(255,255,255,0.2); color: white;">Run Alternative Match 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 IT INTELLITECH | Designed for Student Placement Excellence</p>
+    </footer>
+
+    <script>
+        let totalQuestionsSelected = 0;
+        let currentIdx = 0;
+        let score = 0;
+        let currentQuestionObject = null;
+        let timerInterval;
+        let timeLeft = 0;
+
+        function revealConfigOptions() {
+            document.getElementById('landing-card').classList.add('hidden');
+            document.getElementById('quiz-config-panel').classList.remove('hidden');
+        }
+
+        function startQuiz() {
+            totalQuestionsSelected = parseInt(document.getElementById('qCount').value);
+            timeLeft = parseInt(document.getElementById('timerVal').value);
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+
+            currentIdx = 0;
+            score = 0;
+            generateAndShowQuestion();
+        }
+
+        // ALGORITHMIC APTITUDE QUESTION ENGINE GENERATOR
+        function generateAlgorithmicAptitude() {
+            const types = ['profit', 'work', 'speed', 'percentage', 'average', 'ratio'];
+            const chosenType = types[Math.floor(Math.random() * types.length)];
+            
+            let questionText = "";
+            let correctValue = 0;
+            let explanation = "";
+            let badOptions = [];
+
+            switch(chosenType) {
+                case 'profit': {
+                    let costPrice = (Math.floor(Math.random() * 15) + 1) * 100; // 100 to 1500
+                    let profitPercent = (Math.floor(Math.random() * 5) + 1) * 5; // 5% to 25%
+                    correctValue = costPrice + (costPrice * profitPercent / 100);
+                    
+                    questionText = `A retailer purchases a premium operational toolset for $${costPrice}. If they intend to sell it making a clean profit margin of exactly ${profitPercent}%, what must the final retail Selling Price (SP) be?`;
+                    explanation = `Formula: SP = CP * (1 + Profit%/100). Calculation: ${costPrice} * (1 + ${profitPercent}/100) = $${correctValue}.`;
+                    
+                    badOptions = [
+                        costPrice + (costPrice * (profitPercent + 5) / 100),
+                        costPrice + (costPrice * (profitPercent - 2) / 100),
+                        costPrice - (costPrice * profitPercent / 100)
+                    ];
+                    break;
+                }
+                case 'work': {
+                    let daysA = (Math.floor(Math.random() * 5) + 2) * 2; // Even days 4 to 12
+                    let daysB = daysA * 2; // B takes double time
+                    correctValue = parseFloat(((daysA * daysB) / (daysA + daysB)).toFixed(2));
+                    
+                    questionText = `System Engineer A can construct a specific architectural microservice stack in ${daysA} days, while Developer B takes ${daysB} days to deploy the exact same stack. Working together simultaneously, how many days will it take them to launch the microservice?`;
+                    explanation = `Formula: (A * B) / (A + B). Calculation: (${daysA} * ${daysB}) / (${daysA} + ${daysB}) = ${correctValue} days.`;
+                    
+                    badOptions = [
+                        parseFloat((correctValue + 1.25).toFixed(2)),
+                        parseFloat((correctValue - 0.5).toFixed(2)),
+                        parseFloat(((daysA + daysB) / 2).toFixed(2))
+                    ];
+                    break;
+                }
+                case 'speed': {
+                    let speedKmh = (Math.floor(Math.random() * 6) + 4) * 18; // Multiples of 18 for easy conversion
+                    let timeSec = (Math.floor(Math.random() * 4) + 2) * 5;  // 10 to 25 seconds
+                    let speedMps = speedKmh * (5/18);
+                    correctValue = speedMps * timeSec;
+                    
+                    questionText = `An automated enterprise data drone crosses a synchronized routing bridge corridor at a static speed of ${speedKmh} km/hr. If it takes precisely ${timeSec} seconds to clear the bridge completely, what is the length of the bridge corridor in meters?`;
+                    explanation = `Convert speed to m/s: ${speedKmh} * (5/18) = ${speedMps} m/s. Distance = Speed * Time = ${speedMps} * ${timeSec} = ${correctValue} meters.`;
+                    
+                    badOptions = [
+                        correctValue + 50,
+                        correctValue - 35,
+                        speedKmh * timeSec
+                    ];
+                    break;
+                }
+                case 'percentage': {
+                    let totalApplicants = (Math.floor(Math.random() * 10) + 5) * 200; // 1000 to 2800
+                    let passPercent = (Math.floor(Math.random() * 4) + 1) * 15; // 15% to 60%
+                    correctValue = (totalApplicants * passPercent) / 100;
+                    
+                    questionText = `In a nationwide technological placement examination, a total of ${totalApplicants} candidates registered. If only ${passPercent}% of the applicants cleared the foundational criteria cut-off matrix, compute the precise count of candidates who successfully cleared.`;
+                    explanation = `Calculation: (${passPercent} / 100) * ${totalApplicants} = ${correctValue} candidates.`;
+                    
+                    badOptions = [
+                        correctValue + 120,
+                        correctValue - 80,
+                        totalApplicants - correctValue
+                    ];
+                    break;
+                }
+                case 'average': {
+                    let itemsCount = 4;
+                    let baseNum = (Math.floor(Math.random() * 5) + 7) * 10; // 70 to 110
+                    let n1 = baseNum - 12, n2 = baseNum + 8, n3 = baseNum - 4, n4 = baseNum + 8;
+                    correctValue = (n1 + n2 + n3 + n4) / itemsCount;
+                    
+                    questionText = `A DevOps pipeline logs system diagnostic response latency rates across four sequential server clusters at ${n1}ms, ${n2}ms, ${n3}ms, and ${n4}ms respectively. Calculate the exact structural Average latency metric of the system grid.`;
+                    explanation = `Sum of all items / total items count. Calculation: (${n1} + ${n2} + ${n3} + ${n4}) / 4 = ${correctValue}ms.`;
+                    
+                    badOptions = [
+                        correctValue + 4,
+                        correctValue - 2.5,
+                        baseNum
+                    ];
+                    break;
+                }
+                case 'ratio': {
+                    let commonFactor = Math.floor(Math.random() * 15) + 10; // 10 to 24
+                    let r1 = 3, r2 = 5;
+                    let totalVolume = (r1 + r2) * commonFactor;
+                    correctValue = r2 * commonFactor; // computing part for 5
+                    
+                    questionText = `An algorithmic resource compiler divides a partition processing volume of ${totalVolume} GB into two critical processing channels structured in a definitive mathematical ratio configuration of ${r1}:${r2}. What is the exact capacity allocated to the larger secondary channel?`;
+                    explanation = `Sum of parts = ${r1} + ${r2} = ${r1+r2}. Value per ratio component = ${totalVolume} / ${r1+r2} = ${commonFactor}. Larger share = ${r2} * ${commonFactor} = ${correctValue} GB.`;
+                    
+                    badOptions = [
+                        r1 * commonFactor,
+                        totalVolume - commonFactor,
+                        correctValue + commonFactor
+                    ];
+                    break;
+                }
+            }
+
+            // Map variables to string options format safely
+            let formattedBads = badOptions.map(val => String(val));
+            let formattedAns = String(correctValue);
+
+            return {
+                question: questionText,
+                answer: formattedAns,
+                bads: formattedBads,
+                reason: explanation
+            };
+        }
+
+        function generateAndShowQuestion() {
+            if (currentIdx >= totalQuestionsSelected) {
+                finishQuiz();
+                return;
+            }
+
+            const scenario = generateAlgorithmicAptitude();
+
+            document.getElementById('live-score').innerText = `Marks: ${score}`;
+            document.getElementById('progress').innerText = `Question ${currentIdx + 1} of ${totalQuestionsSelected}`;
+
+            const rightAns = scenario.answer;
+            let choices = [rightAns, ...scenario.bads];
+            
+            // Randomize array order
+            choices.sort(() => Math.random() - 0.5);
+
+            currentQuestionObject = {
+                question: scenario.question,
+                options: choices,
+                answer: rightAns,
+                reason: scenario.reason
+            };
+
+            document.getElementById('question-text').innerText = scenario.question;
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            
+            choices.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => handleAnswer(opt === rightAns);
+                optionsDiv.appendChild(btn);
+            });
+
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            let time = timeLeft;
+            document.getElementById('timer').innerText = time + "s";
+
+            timerInterval = setInterval(() => {
+                time--;
+                document.getElementById('timer').innerText = time + "s";
+                if(time <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Out of time! ❌\n\nCorrect Option: " + currentQuestionObject.answer + "\n\nBreakdown: " + currentQuestionObject.reason);
+                    handleAnswer(false, true);
+                }
+            }, 1000);
+        }
+
+        function handleAnswer(isCorrect, isTimeout = false) {
+            clearInterval(timerInterval);
+            if (!isTimeout) {
+                if (isCorrect) {
+                    score++;
+                    alert("Correct Solution! +1 Mark 🎉\n\nBreakdown: " + currentQuestionObject.reason);
+                } else {
+                    alert("Incorrect Solution! ❌\n\nThe Correct value is: " + currentQuestionObject.answer + "\n\nBreakdown: " + currentQuestionObject.reason);
+                }
+            }
+            currentIdx++;
+            generateAndShowQuestion();
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.remove('hidden');
+            document.getElementById('final-marks').innerText = `${score} / ${totalQuestionsSelected}`;
+            
+            const percentage = Math.round((score / totalQuestionsSelected) * 100);
+            document.getElementById('final-percentage').innerText = `Percentage: ${percentage}%`;
+
+            let feedback = "";
+            if (percentage >= 80) feedback = "Exceptional logical velocity! Your computational runtime performance metrics are top-tier! 🌟";
+            else if (percentage >= 50) feedback = "Solid validation score! Standard analytical clearance achieved successfully. 👍";
+            else feedback = "Review mathematical breakdown execution paths to refine logic parameters. 📚";
+            
+            document.getElementById('performance-feedback').innerText = feedback;
+        }
+
+        function retryQuiz() {
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

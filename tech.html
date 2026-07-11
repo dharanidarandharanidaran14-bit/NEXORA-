@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Skills - Core Interview Assessment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <a href="IT home.html" class="home-btn">
+        Home
+    </a>
+
+    <style>
+        :root {
+            --primary: #0062ff;
+            --primary-dark: #e08727;;
+            --bg-dark: #9cb1e6;
+            --card-bg: #406dcf;
+            --text-muted: #6b7280;
+            --text-light: #9ca3af;
+            --text-muted: #161310;;
+            --text-light: #9ca3af;
+        }
+/* Container for top navigation in the app deck */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: #0c101a;
+    border-bottom: 1px solid #1f2937;
+    margin-bottom: 20px;
+}
+
+/* Back button style */
+.nav-home {
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-home:hover {
+    color: #ffffff;
+}
+
+/* Home button style (for the landing page) */
+.home-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #374151;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin: 10px;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .premium-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 540px;
+            border-radius: 4px;
+            padding: 45px 40px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: var(--text-light);
+            word-spacing: 0.2em;
+        }
+
+        .diagonal-arrow {
+            color: var(--text-light);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .premium-card:hover .diagonal-arrow {
+            transform: translate(3px, -3px);
+            color: #ffffff;
+        }
+
+        .card-body-title {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .icon-box-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .icon-terminal {
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        .card-main-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+        }
+
+        .card-description-text {
+            color: #434a63;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.75;
+            margin-bottom: 45px;
+        }
+
+        .start-quiz-trigger-btn {
+            background: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            font-weight: 500;
+            cursor: pointer;
+            text-transform: uppercase;
+            padding: 0;
+            transition: color 0.2s ease;
+        }
+
+        .start-quiz-trigger-btn:hover {
+            color: #3b82f6;
+        }
+
+        .quiz-box-wrapper {
+            background-color: #05070c;
+            padding: 40px;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 540px;
+            text-align: left;
+            border: 1px solid rgba(0, 98, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-box-wrapper h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .quiz-box-wrapper label { display: block; margin-top: 20px; font-size: 13px; color: var(--text-light); text-align: left; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .quiz-box-wrapper select, .quiz-box-wrapper button {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            background-color: #111827;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .quiz-box-wrapper button {
+            background-color: var(--primary);
+            font-weight: 600;
+            border: none;
+            margin-top: 25px;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 0.02em;
+            transition: background 0.2s ease;
+        }
+        .quiz-box-wrapper button:hover { background-color: var(--primary-dark); }
+
+        .hidden { display: none !important; }
+        .options-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        
+        .option-btn {
+            background-color: #111827 !important;
+            text-align: left !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            line-height: 1.5;
+            padding: 14px 18px !important;
+            border-radius: 6px !important;
+            color: #d1d5db !important;
+        }
+
+        .option-btn:hover { border-color: var(--primary) !important; background-color: #1f2937 !important; color: #ffffff !important; }
+        #timer { font-size: 18px; color: var(--danger); font-family: 'JetBrains Mono', monospace; }
+        .score-tracker { font-size: 14px; color: var(--primary); font-weight: bold; }
+        #question-text { font-size: 1.05rem; margin-top: 15px; line-height: 1.6; text-align: left; color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .metric-row {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+        #final-marks { 
+            color: #ffffff; 
+            font-size: 44px; 
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+        #final-percentage { 
+            color: var(--success); 
+            font-size: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+        .insight-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 10px 0;
+        }
+        #performance-feedback { 
+            color: #cbd5e1; 
+            font-size: 14px; 
+            line-height: 1.6; 
+        }
+
+        .feedback-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #070b12;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            z-index: 10;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .feedback-panel.active { transform: translateY(0); }
+        
+        .feedback-headline-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .feedback-status { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 26px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        
+        .feedback-explain { 
+            color: #cbd5e1; 
+            font-size: 14px; 
+            line-height: 1.6; 
+            margin-bottom: 25px; 
+            background: rgba(255,255,255,0.02); 
+            padding: 15px; 
+            border-left: 3px solid var(--primary); 
+            width: 100%;
+        }
+
+        footer { text-align: center; padding: 30px 20px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
+    </style>
+</head>
+<body>
+
+    <header> 
+        <div class="logo"><i class="fa-solid fa-terminal"></i> NEXORA </div>
+    </header>
+
+    <div class="main-container">
+        <div class="premium-card" id="landing-card">
+            <div class="card-header-row">
+                <div class="quiz-meta">01 / TECHNICAL CORE</div>
+                <a href="javascript:void(0)" class="diagonal-arrow" onclick="revealConfigOptions()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            
+            <div class="card-body-title">
+                <div class="icon-box-wrapper">
+                    <i class="fa-solid fa-user-tie icon-terminal"></i>
+                </div>
+                <h1 class="card-main-heading">TECHNICAL ROUND</h1>
+            </div>
+
+            <p class="card-description-text">
+                Basic technical foundational questions designed to evaluate core software principles. Perfect practice for screening rounds and entry technical interviews.
+            </p>
+
+            <button class="start-quiz-trigger-btn" onclick="revealConfigOptions()">
+                <i class="fa-regular fa-clock"></i> Start Assessment
+            </button>
+        </div>
+
+        <div class="quiz-box-wrapper hidden" id="quiz-config-panel">
+            
+            <div class="feedback-panel" id="feedback-panel">
+                <div class="feedback-headline-meta">Evaluation Results</div>
+                <div class="feedback-status" id="fb-status">Your Answer</div>
+                <div style="font-size: 13px; color: var(--text-light); margin-bottom: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Interview Insight:</div>
+                <div class="feedback-explain" id="fb-explain"></div>
+                <button onclick="dismissFeedback()" style="margin-top: 0;">Next Question ➔</button>
+            </div>
+
+            <div id="page1">
+                <h2>Interview Setup</h2>
+                <div style="color: var(--text-light); font-size: 14px; margin-bottom: 10px;">Configure your practice scenario matrix metrics.</div>
+                <label for="qCount">Select Question Payload Matrix:</label>
+                <select id="qCount">
+                    <option value="10">10 Questions</option>
+                    <option value="20">20 Questions</option>
+                    <option value="30">30 Questions</option>
+                    <option value="40">40 Questions</option>
+                </select>
+                
+                <label for="timerVal">Question Time Limit:</label>
+                <select id="timerVal">
+                    <option value="30">30 Seconds</option>
+                    <option value="45">45 Seconds</option>
+                    <option value="60">60 Seconds</option>
+                </select>
+                <button onclick="startQuiz()">Begin Technical Screen</button>
+            </div>
+
+            <div id="page2" class="hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span id="progress" style="color: var(--text-light); font-size: 13px; font-family: 'JetBrains Mono', monospace;">QUESTION 01/10</span>
+                    <span id="live-score" class="score-tracker">Score: 0</span>
+                    <span id="timer">30s</span>
+                </div>
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 15px;">
+                <h3 id="question-text">Assembling question deck elements...</h3>
+                <div class="options-container" id="options"></div>
+            </div>
+
+            <div id="page3" class="hidden">
+                <h2>Interview Complete</h2>
+                <div style="color: var(--text-light); font-size: 14px; margin-bottom: 5px;">Performance scorecard compiled.</div>
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.08); margin: 15px 0;">
+                
+                <div class="results-container">
+                    <div class="metric-row">
+                        <div id="final-marks">0 / 0</div>
+                        <div id="final-percentage">Yield: 0%</div>
+                    </div>
+                    
+                    <div style="font-size: 12px; color: var(--text-light); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 5px;">Recruiter Summary:</div>
+                    <div class="insight-box">
+                        <p id="performance-feedback"></p>
+                    </div>
+                </div>
+
+                <button onclick="retryQuiz()" style="background-color: transparent; border: 1px solid rgba(255,255,255,0.15); color: white; margin-top: 20px;">Try New Deck 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TechSkills Portfolio | Core Technical Interview Screening Tool</p>
+    </footer>
+
+    <script>
+        // BASIC TECHNICAL INTERVIEW QUESTION DATASET
+        const datasets = [
+            {
+                id: "b1",
+                text: "Which HTTP method is predominantly used to request data from a specified web server resource without making any modifications?",
+                fix: "GET",
+                reason: "The GET method is designed solely to retrieve information. It is idempotent, meaning multiple identical requests should produce the exact same outcome without side-effects.",
+                bads: ["POST", "PUT", "DELETE"]
+            },
+            {
+                id: "b2",
+                text: "In a relational database system (RDBMS), what primary purpose does a Database Index serve?",
+                fix: "To drastically speed up data retrieval operations on tables",
+                reason: "Indexes create localized search structures (like B-Trees) allowing the database engine to find specific rows without executing slow, full-table data scans.",
+                bads: ["To encrypt sensitive database column fields", "To automatically eliminate duplicate records on insert", "To create a secure backup mirror of tables instantly"]
+            },
+            {
+                id: "b3",
+                text: "What does an HTTP 404 Status Code explicitly mean when received by a browser?",
+                fix: "The requested resource could not be found on the server",
+                reason: "A 404 error is a client-side status code indicating that the network connection to the server succeeded, but the exact path requested does not map to any asset.",
+                bads: ["The server encountered an unhandled code crash", "Access is unauthorized due to bad credentials", "The connection timed out before loading"]
+            },
+            {
+                id: "b4",
+                text: "What is the primary architectural difference between an Array and a Linked List data structure?",
+                fix: "Arrays use contiguous blocks of memory; Linked Lists use memory nodes scattered dynamically with pointers",
+                reason: "Arrays have fixed, continuous memory allowing fast random access ($O(1)$ via index), while Linked Lists must be traversed element by element ($O(n)$) via node links.",
+                bads: ["Arrays can only store numerical integers; Linked Lists store textual strings", "Linked lists are always restricted to a fixed size threshold during creation", "Arrays automatically sort elements while Linked Lists leave data elements unsorted"]
+            },
+            {
+                id: "b5",
+                text: "In version control systems like Git, what action does the command 'git clone' perform?",
+                fix: "It creates a complete, functional local copy of a target remote repository",
+                reason: "'git clone' downloads the full history, branches, and tracked files of an existing remote host repository onto a local development environment.",
+                bads: ["It merges two active local code branches together", "It pushes temporary code edits straight to the production server environment", "It deletes all untracked development source code files safely"]
+            },
+            {
+                id: "b6",
+                text: "Which of the following descriptions accurately describes the fundamental concept of Object-Oriented Programming (OOP) Polymorphism?",
+                fix: "The ability for diverse classes to be processed through a unified shared interface",
+                reason: "Polymorphism literally translates to 'many forms'. It allows a single method definition to execute entirely different actions based on the specific subclass object invoking it.",
+                bads: ["The process of restricting external structural modifications on variables", "The strategy of breaking large applications into multiple separate files", "The practice of creating global variable systems accessible everywhere"]
+            },
+            {
+                id: "b7",
+                text: "What fundamental structural behavior defines a Stack data structure?",
+                fix: "Last-In, First-Out (LIFO)",
+                reason: "A stack processes elements linearly where the last piece of data pushed in is the very first asset to be extracted (think of a stack of dinner plates).",
+                bads: ["First-In, First-Out (FIFO)", "Random-In, Sorted-Out (RISO)", "Highest-Value, First-Out (HVFO)"]
+            },
+            {
+                id: "b8",
+                text: "What is the primary difference between synchronous and asynchronous code execution paths?",
+                fix: "Synchronous code runs sequentially line by line blocking progress; Asynchronous code executes tasks concurrently without stopping lines",
+                reason: "Synchronous loops require the current execution process to complete fully before initializing subsequent steps, whereas asynchronous operations hand off tasks to background threads.",
+                bads: ["Synchronous code can only be compiled on cloud instances", "Asynchronous logic requires explicit dual-core processing components to execute lines", "Synchronous environments do not support standard variables blocks"]
+            },
+            {
+                id: "b9",
+                text: "What type of structural system error occurs when a recursive function fails to establish a proper base case constraint?",
+                fix: "Stack Overflow Error",
+                reason: "Each infinite recursive loop pushes call details into the application runtime stack memory panel. Without a base stopping case, memory fills entirely until it crashes.",
+                bads: ["Null Pointer Exception", "Syntax Execution Warning", "Out of Bounds Index Array"]
+            },
+            {
+                id: "b10",
+                text: "In standard database languages, what specific task does the SQL 'GROUP BY' statement execute?",
+                fix: "It organizes rows sharing matching column metrics into single summary records",
+                reason: "'GROUP BY' clusters identical row elements together, frequently paired alongside math aggregators like COUNT(), SUM(), or AVG() to yield data insights.",
+                bads: ["It sorts output values in alphabetical descending sequence", "It combines separate data columns from multiple tables matching target keys", "It permanently removes duplicate rows out of the primary table structure"]
+            }
+        ];
+
+        let permanentlyUsedIds = [];
+        let totalQuestionsSelected = 0;
+        let currentIdx = 0;
+        let score = 0;
+        let currentQuestionObject = null;
+        let timerInterval;
+        let timeLeft = 0;
+        let runtimePool = [];
+
+        function revealConfigOptions() {
+            document.getElementById('landing-card').classList.add('hidden');
+            document.getElementById('quiz-config-panel').classList.remove('hidden');
+        }
+
+        function startQuiz() {
+            totalQuestionsSelected = parseInt(document.getElementById('qCount').value);
+            timeLeft = parseInt(document.getElementById('timerVal').value);
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+
+            currentIdx = 0;
+            score = 0;
+            runtimePool = [];
+
+            // Loop and auto-fill the requested payload sizes cleanly
+            while(runtimePool.length < totalQuestionsSelected) {
+                let filteredItems = datasets.filter(item => !permanentlyUsedIds.includes(item.id));
+                if (filteredItems.length === 0) {
+                    permanentlyUsedIds = [];
+                    filteredItems = [...datasets];
+                }
+                filteredItems.sort(() => Math.random() - 0.5);
+                for(let item of filteredItems) {
+                    if(runtimePool.length < totalQuestionsSelected) {
+                        runtimePool.push(item);
+                        permanentlyUsedIds.push(item.id);
+                    }
+                }
+            }
+
+            runtimePool.sort(() => Math.random() - 0.5);
+            generateAndShowQuestion();
+        }
+
+        function generateAndShowQuestion() {
+            if (currentIdx >= totalQuestionsSelected) {
+                finishQuiz();
+                return;
+            }
+
+            const scenario = runtimePool.pop();
+
+            document.getElementById('live-score').innerText = `Score: ${score}`;
+            document.getElementById('progress').innerText = `QUESTION ${currentIdx + 1}/${totalQuestionsSelected}`;
+
+            const questionText = scenario.text;
+            const rightAns = scenario.fix;
+            
+            let choices = [rightAns, ...scenario.bads];
+            choices.sort(() => Math.random() - 0.5);
+
+            currentQuestionObject = {
+                question: questionText,
+                options: choices,
+                answer: rightAns,
+                reason: scenario.reason
+            };
+
+            document.getElementById('question-text').innerText = questionText;
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            
+            choices.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => handleAnswer(opt === rightAns, false);
+                optionsDiv.appendChild(btn);
+            });
+
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            let time = timeLeft;
+            document.getElementById('timer').innerText = time + "s";
+
+            timerInterval = setInterval(() => {
+                time--;
+                document.getElementById('timer').innerText = time + "s";
+                if(time <= 0) {
+                    clearInterval(timerInterval);
+                    handleAnswer(false, true);
+                }
+            }, 1000);
+        }
+
+        function handleAnswer(isCorrect, isTimeout = false) {
+            clearInterval(timerInterval);
+            
+            const fbPanel = document.getElementById('feedback-panel');
+            const fbStatus = document.getElementById('fb-status');
+            const fbExplain = document.getElementById('fb-explain');
+
+            if (isTimeout) {
+                fbStatus.innerHTML = `<i class="fa-solid fa-hourglass-end"></i> Your Answer: Timeout`;
+                fbStatus.style.color = "var(--danger)";
+                fbExplain.innerText = `Correct Answer: ${currentQuestionObject.answer}\n\nConcept Summary: ${currentQuestionObject.reason}`;
+            } else if (isCorrect) {
+                score++;
+                fbStatus.innerHTML = `<i class="fa-solid fa-circle-check"></i> Your Answer is Correct`;
+                fbStatus.style.color = "var(--success)";
+                fbExplain.innerText = `Spot on!\n\nConcept Summary: ${currentQuestionObject.reason}`;
+            } else {
+                fbStatus.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Your Answer is Incorrect`;
+                fbStatus.style.color = "var(--danger)";
+                fbExplain.innerText = `Correct Answer: ${currentQuestionObject.answer}\n\nConcept Summary: ${currentQuestionObject.reason}`;
+            }
+
+            fbPanel.classList.add('active');
+        }
+
+        function dismissFeedback() {
+            document.getElementById('feedback-panel').classList.remove('active');
+            currentIdx++;
+            generateAndShowQuestion();
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.remove('hidden');
+            document.getElementById('final-marks').innerText = `${score} / ${totalQuestionsSelected}`;
+            
+            const percentage = Math.round((score / totalQuestionsSelected) * 100);
+            document.getElementById('final-percentage').innerText = `Yield: ${percentage}%`;
+
+            let feedback = "";
+            if (percentage >= 80) {
+                feedback = "Excellent base technical literacy. You demonstrated clear mastery over fundamental interview concepts and core engineering patterns. Highly recommend for following technical rounds! 🚀";
+                document.getElementById('final-percentage').style.color = "var(--success)";
+            } else if (percentage >= 50) {
+                feedback = "Good baseline performance. Most core questions answered correctly, but brushing up slightly on network fundamentals and basic data access structures could solidify performance metrics. 👍";
+                document.getElementById('final-percentage').style.color = "var(--primary)";
+            } else {
+                feedback = "Additional foundation required. Review primitive data structures (like Stacks, Lists), basic SQL interactions, and standard HTTP communications to perform better on screenings. 📖";
+                document.getElementById('final-percentage').style.color = "var(--danger)";
+            }
+            
+            document.getElementById('performance-feedback').innerText = feedback;
+        }
+
+        function retryQuiz() {
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

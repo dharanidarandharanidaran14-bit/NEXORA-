@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Intelligence</title>
+    <a href="IT home.html" class="home-btn">
+    Home
+</a>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #9cb1e6; 
+            color: #ffffff; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+            min-height: 100vh; 
+        }
+        
+        .phone-wrapper {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            background-color:#9cb1e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        /* Container for top navigation in the app deck */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: #0c101a;
+    border-bottom: 1px solid #1f2937;
+    margin-bottom: 20px;
+}
+
+/* Back button style */
+.nav-home {
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-home:hover {
+    color: #ffffff;
+}
+
+/* Home button style (for the landing page) */
+.home-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #374151;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin: 10px;
+}
+
+        /* Content Structure */
+        .main-content {
+            padding: 60px 24px;
+            flex-grow: 1;
+        }
+        .tagline {
+            color: #6b7280;
+            font-size: 13px;
+            letter-spacing: 4px;
+            margin-bottom: 45px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .title-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+        .title-icon {
+            color: #10b981;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        h1 {
+            font-size: 44px;
+            line-height: 1.1;
+            margin: 0;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+        .description {
+            color: #525761;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        /* Interactive Action Button */
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #27272a;
+            padding: 18px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            justify-content: center;
+            box-sizing: border-box;
+            text-transform: uppercase;
+        }
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: #3f3f46;
+        }
+
+        /* Top Nav Styling for Inner Pages */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 25px 0;
+        }
+        .nav-home {
+            color: #9ca3af;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .nav-title {
+            color: #14b8a6;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Active Core Application Deck Component */
+        #main-app { 
+            display: none; 
+            padding: 40px 24px;
+        }
+        .card { 
+            background-color: #111827; 
+            border: 1px solid #1f2937; 
+            border-radius: 8px; 
+            padding: 35px 30px; 
+            min-height: 180px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 18px; 
+            color: #e5e7eb; 
+            line-height: 1.6; 
+            font-weight: 500; 
+            margin-bottom: 30px; 
+            text-align: left; 
+        }
+        .buttons-group { 
+            display: flex; 
+            justify-content: space-between; 
+            gap: 15px; 
+        }
+        .nav-btn { 
+            flex: 1; 
+            padding: 15px; 
+            font-size: 15px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-prev { background-color: #374151; color: #ffffff; }
+        .btn-next { background-color: #10b981; color: #ffffff; }
+        .nav-btn:disabled { background-color: #1f2937; color: #4b5563; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="phone-wrapper">
+    
+    <!-- PAGE 1: PICTURE-MATCHING LANDING INTERFACE -->
+    <div id="landing-page">
+        <div class="main-content">
+            <div class="tagline">[ EMOTIONAL INTELLIGENCE &middot; EVERY VISIT ]</div>
+            
+            <div class="title-container">
+                <svg class="title-icon" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <h1>Emotional<br>Intelligence.</h1>
+            </div>
+            
+            <p class="description">Master self-awareness, manage mental triggers, and develop deep empathy. Read slowly. The way you communicate and lead teams will transform completely when you focus on this.</p>
+            
+            <button class="btn-outline" onclick="startApp()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                </svg>
+                LEARN NOW WITH US
+            </button>
+        </div>
+    </div>
+
+    <!-- PAGE 2: MAIN NOTES DISPLAY DECK -->
+    <div id="main-app">
+        <div class="top-nav">
+            <span class="nav-home" onclick="goBack()">&larr; Back</span>
+            <span class="nav-title">EMOTIONAL INTELLIGENCE</span>
+        </div>
+        <div class="card" id="note-box">Loading...</div>
+        <div class="buttons-group">
+            <button class="nav-btn btn-prev" id="prev-btn" onclick="prevNote()" disabled>Previous</button>
+            <button class="nav-btn btn-next" id="next-btn" onclick="nextNote()">Next Note</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const notes = [
+        "🌟 \"Self-awareness is the foundation of emotional intelligence; recognize your moods as they happen.\"",
+        "🌟 \"Self-regulation prevents emotional hijacking by creating a gap between stimulus and response.\"",
+        "🌟 \"Empathy is not merely feeling sorry for someone; it is understanding their perspective deeply.\"",
+        "🌟 \"Social skills allow you to build genuine rapport and guide team dynamics effectively.\"",
+        "🌟 \"Intrinsic motivation drives high performers to pursue goals for passion, not just a paycheck.\"",
+        "🌟 \"An emotionally intelligent leader balances task execution with human relationship care.\"",
+        "🌟 \"Recognizing your emotional triggers allows you to maintain control during tight deadlines.\"",
+        "🌟 \"Active listening means listening to comprehend the speaker, not just preparing your rebuttal.\"",
+        "🌟 \"When stress spikes, taking three slow deep breaths resets your nervous system instantly.\"",
+        "🌟 \"Labeling your emotions precisely degrades their power over your logical thinking process.\"",
+        "🌟 \"Constructive feedback focuses entirely on behavior patterns, never on personal traits.\"",
+        "🌟 \"Pausing for five seconds before answering a difficult question prevents defensive replies.\"",
+        "🌟 \"True empathy requires silencing your inner judgments to completely receive another story.\"",
+        "🌟 \"Emotional intelligence determines how well a team handles critical structural pivots.\"",
+        "🌟 \"An apology is meaningless without a committed change in future behavioral interactions.\"",
+        "🌟 \"Validating another person's feelings does not mean you automatically agree with them.\"",
+        "🌟 \"Mindfulness practices strengthen your brain's prefrontal cortex for better impulse control.\"",
+        "🌟 \"Resilience is built by refactoring temporary setbacks as constructive learning data.\"",
+        "🌟 \"An EQ-driven team possesses a collective safety layout that welcomes unique opinions.\"",
+        "🌟 \"Your emotional tone as a manager directly dictates the productivity speed of your staff.\"",
+        "🌟 \"Non-verbal cues like open posture establish subconscious trust during discussions.\"",
+        "🌟 \"Healthy conflict resolution addresses the root issue without breaking human dignity.\"",
+        "🌟 \"Choosing clarity over comfort during tough conversations prevents future systemic toxicities.\"",
+        "🌟 \"Empathy tracking protects tech teams from burnout during rigorous project sprints.\"",
+        "🌟 \"Emotional resilience means bouncing back from rejection without losing operational drive.\"",
+        "🌟 \"A high EQ allows individuals to easily decouple their identity from their software code.\"",
+        "🌟 \"Practicing daily gratitude changes your neural pathways to spot opportunities faster.\"",
+        "🌟 \"Compassion is empathy combined with a proactive desire to alleviate another's block.\"",
+        "🌟 \"Recognizing emotional patterns in colleagues helps prevent sudden project departures.\"",
+        "🌟 \"Emotional boundaries ensure you support colleagues without absorbing their anxiety.\"",
+        "🌟 \"Cultivating self-compassion reduces the creative paralysis caused by perfectionism.\"",
+        "🌟 \"An emotionally intelligent workspace views vulnerability as an indicator of strength.\"",
+        "🌟 \"Cognitive empathy allows you to accurately predict how updates impact end-users.\"",
+        "🌟 \"Regulating anger involves redirecting that intense energy into constructive problem-solving.\"",
+        "🌟 \"Psychological safety is the structural layer where emotional intelligence thrives safely.\"",
+        "🌟 \"Assertiveness means standing up for your needs while respecting your peer group.\"",
+        "🌟 \"Humility allows you to accept corrections from junior engineers without ego friction.\"",
+        "🌟 \"Emotional agility is the capacity to experience complex feelings without breaking steps.\"",
+        "🌟 \"Inspirational motivation relies on painting a shared vision, not enforcing dynamic rules.\"",
+        "🌟 \"Optimism is an active strategic choice to focus on solutions instead of limitations.\"",
+        "🌟 \"Praising your team publicly builds authentic social capital and operational alignment.\"",
+        "🌟 \"Managing up requires understanding your executive manager's core fears and motivations.\"",
+        "🌟 \"Emotional intelligence helps you remain calm when client requests turn highly chaotic.\"",
+        "🌟 \"A genuine smile decreases cardiovascular stress levels during intense corporate tasks.\"",
+        "🌟 \"Self-reflection turns chaotic daily work experiences into structured tactical wisdom.\"",
+        "🌟 \"Mirroring a speaker's emotional energy levels creates instant conversational safety.\"",
+        "🌟 \"Detaching emotionally from system failures allows for faster engineering root analysis.\"",
+        "🌟 \"An EQ leader knows exactly when to push the team and when to mandate relaxation.\"",
+        "🌟 \"Handling difficult personalities requires addressing their behavior while staying calm.\"",
+        "🌟 \"Your internal self-talk determines how well you navigate high-pressure presentations.\"",
+        "🌟 \"Developing emotional intelligence requires consistent, deliberate daily personal effort.\"",
+        "🌟 \"Empathy in UX design results in products that match true user mental models.\"",
+        "🌟 \"An emotionally intelligent culture values collaborative success over solo star metrics.\"",
+        "🌟 \"Recognizing envy allows you to turn it into inspiration for your own skill growth.\"",
+        "🌟 \"Emotional intelligence acts as a buffer against workplace micro-aggressions.\"",
+        "🌟 \"Sustained eye contact indicates presence and builds authentic collaborative respect.\"",
+        "🌟 \"Acknowledging your mistakes early demonstrates advanced emotional and professional maturity.\"",
+        "🌟 \"Emotional boundaries prevent workplace stress from invading your personal life.\"",
+        "🌟 \"High EQ individuals interpret feedback as optimization input, not personal attacks.\"",
+        "🌟 \"Empathy mapping before structural reorganization prevents deep operational friction.\"",
+        "🌟 \"Regulating your enthusiasm protects the team from committing to impossible timelines.\"",
+        "🌟 \"An EQ-centered retrospective focuses on system dynamics and interpersonal bottlenecks.\"",
+        "🌟 \"Active empathy means checking in on a quiet team member after a hard meeting.\"",
+        "🌟 \"Self-awareness requires tracking how your energy impacts those around you.\"",
+        "🌟 \"Emotional stability creates a predictable and secure environment for your team.\"",
+        "🌟 \"High EQ customer service defuses angry clients through validation, not arguments.\"",
+        "🌟 \"Understanding your core values helps you navigate difficult ethical choices smoothly.\"",
+        "🌟 \"Emotional intelligence turns stressful team transitions into structured growth moments.\"",
+        "🌟 \"Practicing mindfulness helps you notice rising stress before it causes a blowout.\"",
+        "🌟 \"High EQ cross-functional collaboration relies on bridging different team subcultures.\"",
+        "🌟 \"An empathetic manager addresses poor performance by exploring the root causes first.\"",
+        "🌟 \"Developing emotional intelligence expands your capacity to handle system ambiguity.\"",
+        "🌟 \"Emotional validation creates a supportive environment where innovative ideas can bloom.\"",
+        "🌟 \"Self-regulation keeps you focused on long-term targets despite daily distractions.\"",
+        "🌟 \"High EQ project management balances cold scope charts with warm human check-ins.\"",
+        "🌟 \"Understanding emotional triggers prevents past workplace trauma from sabotaging new roles.\"",
+        "🌟 \"An emotionally intelligent team handles intense project pivots without finger-pointing.\"",
+        "🌟 \"Active listening involves tracking changes in tone, not just processing literal words.\"",
+        "🌟 \"High EQ leadership builds a culture of ownership rather than a culture of compliance.\"",
+        "🌟 \"Developing emotional intelligence helps you build authentic connections across diverse teams.\"",
+        "🌟 \"Emotional self-awareness lets you spot when fatigue is clouding your system decisions.\"",
+        "🌟 \"An EQ-driven culture normalizes taking mental health breaks during intense delivery periods.\"",
+        "🌟 \"High EQ negotiation involves discovering win-win options that preserve partner relationships.\"",
+        "🌟 \"Recognizing your emotional blind spots keeps your leadership approach grounded.\"",
+        "🌟 \"Emotional intelligence helps software engineers translate complex data into human stories.\"",
+        "🌟 \"Practicing empathy daily expands your capacity to guide complex client interactions.\"",
+        "🌟 \"Self-regulation under pressure protects your personal brand from sudden emotional lapses.\"",
+        "🌟 \"An emotionally intelligent team resolves internal tension before it affects production code.\"",
+        "🌟 \"High EQ relationship management relies on clear communication and consistent boundaries.\"",
+        "🌟 \"Developing emotional intelligence helps you move from reactive survival to proactive planning.\"",
+        "🌟 \"Emotional self-awareness is the first step toward true personal leadership growth.\"",
+        "🌟 \"An EQ-focused workplace replaces blame dynamics with collaborative curiosity.\"",
+        "🌟 \"High EQ conflict resolution transforms difficult friction into deeper team alignment.\"",
+        "🌟 \"Understanding the emotional roots of resistance helps you lead change initiatives smoothly.\"",
+        "🌟 \"Emotional intelligence empowers you to decline tasks gracefully without feeling guilty.\"",
+        "🌟 \"Practicing self-regulation builds deep professional credibility across all organization levels.\"",
+        "🌟 \"An empathetic approach to user data reveals the real motivations behind customer habits.\"",
+        "🌟 \"High EQ collaboration requires balancing your personal goals with group deliverables.\"",
+        "🌟 \"Developing emotional intelligence helps you maintain clarity during rapid corporate shifts.\"",
+        "🌟 \"Emotional self-awareness allows you to lead with authentic purpose and impact.\"",
+        "🌟 \"An EQ-driven development cycle integrates human feedback loops at every major milestone.\"",
+        "🌟 \"High EQ team leadership minimizes office politics to keep productivity levels high.\"",
+        "🌟 \"Understanding your emotional limits helps you balance your career goals sustainably.\"",
+        "🌟 \"Emotional intelligence lets you navigate sensitive corporate topics with genuine grace.\"",
+        "🌟 \"Practicing active empathy builds deep trust that speeds up project timelines.\"",
+        "🌟 \"Self-regulation prevents impulsive code changes driven by late-night release panic.\"",
+        "🌟 \"An emotionally intelligent product culture prioritizes true accessibility for all users.\"",
+        "🌟 \"High EQ cross-department communication breaks down isolated organizational data silos.\"",
+        "🌟 \"Developing emotional intelligence helps you manage career transitions with minimal friction.\"",
+        "🌟 \"Emotional self-awareness turns every project failure into a valuable learning asset.\"",
+        "🌟 \"An EQ-centered code review treats the builder with respect while analyzing the software.\"",
+        "🌟 \"High EQ client relations keep accounts stable during unexpected infrastructure downtime.\"",
+        "🌟 \"Understanding the emotional climate of your company helps you pitch ideas effectively.\"",
+        "🌟 \"Emotional intelligence empowers you to support your team without burning out.\"",
+        "🌟 \"Practicing regular self-reflection keeps your professional development goals focused.\"",
+        "🌟 \"Self-regulation protects your focus from being derailed by sudden negative feedback.\"",
+        "🌟 \"An emotionally intelligent data strategy respects user privacy boundaries completely.\"",
+        "🌟 \"High EQ engineering cultures balance focus hours with open social connection.\"",
+        "🌟 \"Developing emotional intelligence expands your capacity for deep technical mentorship.\"",
+        "🌟 \"Emotional self-awareness helps you align your daily tasks with your career vision.\"",
+        "🌟 \"An EQ-focused design language builds digital interfaces that feel supportive and natural.\"",
+        "🌟 \"High EQ cross-functional alignment bridges different team styles smoothly.\"",
+        "🌟 \"Understanding emotional dynamics helps you guide teams through high-stakes client pitches.\"",
+        "🌟 \"Emotional intelligence lets you deliver tough assessments without damaging peer morale.\"",
+        "🌟 \"Practicing empathy helps you design automated systems that treat humans considerately.\"",
+        "🌟 \"Self-regulation keeps you grounded when sudden leadership changes alter your roadmap.\"",
+        "🌟 \"An emotionally intelligent architecture team values simple, maintainable software systems.\"",
+        "🌟 \"High EQ operational management balances clear performance metrics with genuine human care.\"",
+        "🌟 \"Developing emotional intelligence helps you build collaborative partner networks.\"",
+        "🌟 \"Emotional self-awareness is your best tool for identifying career burnout early.\"",
+        "🌟 \"An EQ-driven product roadmap leaves room for human adjustment and discovery.\"",
+        "🌟 \"High EQ remote collaboration uses clear, thoughtful text to replace physical presence.\"",
+        "🌟 \"Understanding your emotional drivers gives you the energy to tackle tough tasks.\"",
+        "🌟 \"Emotional intelligence helps you handle sudden project cancellations with composure.\"",
+        "🌟 \"Practicing active empathy lets you see the true needs hidden behind complex bug files.\"",
+        "🌟 \"Self-regulation ensures your code deployments are guided by data, not panic.\"",
+        "🌟 \"An emotionally intelligent documentation strategy builds clear guides that save time.\"",
+        "🌟 \"High EQ dev squads resolve design arguments through objective testing, not ego.\"",
+        "🌟 \"Developing emotional intelligence helps you stay calm during complex data recoveries.\"",
+        "🌟 \"Emotional self-awareness lets you recognize when personal stress is affecting your code.\"",
+        "🌟 \"An EQ-centered support team turns frustrating software bugs into trust-building wins.\"",
+        "🌟 \"High EQ business analysis combines cold system metrics with warm customer interviews.\"",
+        "🌟 \"Understanding emotional undercurrents lets you manage high-pressure stakeholder groups safely.\"",
+        "🌟 \"Emotional intelligence empowers you to lead cross-functional projects with confidence.\"",
+        "🌟 \"Practicing regular mindfulness keeps your thinking sharp during marathon sprint cycles.\"",
+        "🌟 \"Self-regulation keeps your tone constructive even during long production outages.\"",
+        "🌟 \"An emotionally intelligent API strategy builds clear integrations that developers appreciate.\"",
+        "🌟 \"High EQ team management builds long-term loyalty and cuts staff turnover rates.\"",
+        "🌟 \"Developing emotional intelligence expands your capacity to handle strategic changes.\"",
+        "🌟 \"Emotional self-awareness helps you navigate complex company cultures with composure.\"",
+        "🌟 \"An EQ-focused training path values interpersonal capability alongside technical skills.\"",
+        "🌟 \"High EQ data presentations focus on the human impact behind the charts.\"",
+        "🌟 \"Understanding your emotional limits keeps you from committing to impossible roadmaps.\"",
+        "🌟 \"Emotional intelligence lets you address team performance drops with constructive empathy.\"",
+        "🌟 \"Practicing active listening helps you catch subtle requirements in client calls.\"",
+        "🌟 \"Self-regulation keeps your project prioritization logical when requests pile up.\"",
+        "🌟 \"An emotionally intelligent tech culture supports open experimentation and safe learning.\"",
+        "🌟 \"High EQ leadership balances immediate delivery pressures with long-term team growth.\"",
+        "🌟 \"Developing emotional intelligence helps you manage complex corporate partnerships smoothly.\"",
+        "🌟 \"Emotional self-awareness is the first step toward true professional freedom.\"",
+        "🌟 \"An EQ-centered design sprint values diverse user perspectives from day one.\"",
+        "🌟 \"High EQ technical mentorship focuses on building confidence alongside skill sets.\"",
+        "🌟 \"Understanding the emotional drivers of change reduces friction during major rollouts.\"",
+        "🌟 \"Emotional intelligence helps you decline low-priority tasks with absolute grace.\"",
+        "🌟 \"Practicing self-regulation builds deep professional trust across your entire network.\"",
+        "🌟 \"An empathetic approach to system architecture ensures platforms scale for user needs.\"",
+        "🌟 \"High EQ engineering collaboration requires balancing individual speed with team stability.\"",
+        "🌟 \"Developing emotional intelligence helps you maintain your focus during corporate shifts.\"",
+        "🌟 \"Emotional self-awareness allows you to lead with clear, authentic intent.\"",
+        "🌟 \"An EQ-driven QA cycle focuses on building reliable systems for the end-user.\"",
+        "🌟 \"High EQ squad management cuts down team friction to keep release pipelines moving.\"",
+        "🌟 \"Understanding your emotional capacity helps you balance your career goals sustainably.\"",
+        "🌟 \"Emotional intelligence lets you manage sensitive project status updates smoothly.\"",
+        "🌟 \"Practicing active empathy builds strong team bonds that accelerate delivery times.\"",
+        "🌟 \"Self-regulation prevents impulsive architecture decisions driven by passing trends.\"",
+        "🌟 \"An emotionally intelligent release cycle schedules launches to protect team rest.\"",
+        "🌟 \"High EQ data engineering values the accuracy and ethical treatment of user data.\"",
+        "🌟 \"Developing emotional intelligence helps you navigate career changes with minimal friction.\"",
+        "🌟 \"Emotional self-awareness turns every project hurdle into a valuable learning asset.\"",
+        "🌟 \"An EQ-driven product framework balances immediate user feedback with long-term goals.\"",
+        "🌟 \"High EQ client management keeps external accounts stable during system migrations.\"",
+        "🌟 \"Understanding your team's emotional climate helps you pitch internal tools effectively.\"",
+        "🌟 \"Emotional intelligence lets you support colleagues effectively without absorbing their stress.\"",
+        "🌟 \"Practicing regular self-reflection keeps your professional growth path intentional.\"",
+        "🌟 \"Self-regulation protects your focus from being disrupted by sudden roadmap shifts.\"",
+        "🌟 \"An emotionally intelligent compliance strategy respects user privacy boundaries completely.\"",
+        "🌟 \"High EQ developer operations balance rapid deployment with system stability.\"",
+        "🌟 \"Developing emotional intelligence expands your capacity for senior technical leadership.\"",
+        "🌟 \"Emotional self-awareness helps you align your daily tasks with your career vision.\"",
+        "🌟 \"An EQ-focused user onboarding experience reduces initial software adoption friction.\"",
+        "🌟 \"High EQ cross-functional alignment bridges different team working styles smoothly.\"",
+        "🌟 \"Understanding group emotional dynamics helps you lead teams through tough system failures.\"",
+        "🌟 \"Emotional intelligence lets you deliver constructive criticism without reducing peer morale.\"",
+        "🌟 \"Practicing empathy helps you design accessible digital interfaces for all populations.\"",
+        "🌟 \"Self-regulation keeps you grounded when rapid corporate changes alter your department.\"",
+        "🌟 \"An emotionally intelligent engineering team builds modular, maintainable codebases.\"",
+        "🌟 \"High EQ operational tracking balances productivity metrics with team wellness markers.\"",
+        "🌟 \"Developing emotional intelligence helps you build authentic corporate partner networks.\"",
+        "🌟 \"Emotional self-awareness is your most effective tool for spotting team burnout early.\"",
+        "🌟 \"An EQ-driven development cycle leaves room for user discovery and iteration.\"",
+        "🌟 \"High EQ remote team management uses intentional check-ins to build peer trust.\"",
+        "🌟 \"Understanding your core motivators gives you the grit to tackle complex tech builds.\"",
+        "🌟 \"Emotional intelligence helps you handle sudden project adjustments with composure.\"",
+        "🌟 \"Practicing active empathy lets you discover the real issues behind messy bug reports.\"",
+        "🌟 \"Self-regulation ensures your software releases are guided by data, not panic.\"",
+        "🌟 \"An emotionally intelligent knowledge base provides clear, accessible learning guides.\"",
+        "🌟 \"High EQ technical discussions resolve system arguments through evidence, not authority.\"",
+        "🌟 \"Developing emotional intelligence helps you stay calm during complex system restores.\"",
+        "🌟 \"Emotional self-awareness lets you spot when personal fatigue is clouding code design.\"",
+        "🌟 \"An EQ-centered service desk turns frustrating user errors into trust-building wins.\"",
+        "🌟 \"High EQ business analysis combines system performance charts with user interviews.\"",
+        "🌟 \"Understanding corporate emotional dynamics lets you manage difficult stakeholder groups safely.\"",
+        "🌟 \"Emotional intelligence empowers you to run cross-functional initiatives with confidence.\"",
+        "🌟 \"Practicing regular mindfulness keeps your focus sharp during intensive design weeks.\"",
+        "🌟 \"Self-regulation keeps your tone professional even during challenging incident reviews.\"",
+        "🌟 \"An emotionally intelligent data layout builds clear pipelines that analysts appreciate.\"",
+        "🌟 \"High EQ engineering leadership creates true accountability and cuts turnover rates.\"",
+        "🌟 \"Developing emotional intelligence expands your capacity to handle strategic changes.\"",
+        "🌟 \"Emotional self-awareness helps you navigate complex company dynamics with composure.\"",
+        "🌟 \"An EQ-focused training plan prioritizes collaborative capability beside tech skills.\"",
+        "🌟 \"High EQ metric reporting focuses on the real-world impact behind the data.\"",
+        "🌟 \"Understanding your emotional limits keeps you from over-promising on project estimates.\"",
+        "🌟 \"Emotional intelligence lets you address team performance drops with constructive empathy.\"",
+        "🌟 \"Practicing active listening helps you catch hidden requirements in partner calls.\"",
+        "🌟 \"Self-regulation keeps your sprint planning logical when tasks start tracking behind.\"",
+        "🌟 \"An emotionally intelligent engineering culture embraces open learning and safe failure.\"",
+        "🌟 \"High EQ technical direction balances near-term feature needs with platform health.\"",
+        "🌟 \"Developing emotional intelligence helps you manage complex corporate partnerships smoothly.\"",
+        "🌟 \"Emotional self-awareness is the baseline requirement for authentic career progression.\"",
+        "🌟 \"An EQ-centered design cycle values diverse user capabilities from the first mockup.\"",
+        "🌟 \"High EQ technical mentorship prioritizes building developer autonomy above speed.\"",
+        "🌟 \"Understanding the human side of change reduces friction during framework migrations.\"",
+        "🌟 \"Emotional intelligence helps you decline secondary feature requests with absolute grace.\"",
+        "🌟 \"Practicing self-regulation builds deep professional trust across separate engineering units.\"",
+        "🌟 \"An empathetic platform architecture ensures systems remain accessible under peak loads.\"",
+        "🌟 \"High EQ development collaboration balances individual output with shared codebase ownership.\"",
+        "🌟 \"Developing emotional intelligence helps you maintain your focus during corporate shifts.\"",
+        "🌟 \"Emotional self-awareness allows you to lead technical initiatives with clear intent.\"",
+        "🌟 \"An EQ-driven validation pipeline focuses on creating genuine value for users.\"",
+        "🌟 \"High EQ product delivery cuts down cross-team friction to keep deployments smooth.\"",
+        "🌟 \"Understanding your emotional boundaries helps you manage your career path sustainably.\"",
+        "🌟 \"Emotional intelligence lets you handle sensitive security update notifications gracefully.\"",
+        "🌟 \"Practicing active empathy builds deep peer trust that accelerates difficult migrations.\"",
+        "🌟 \"Self-regulation prevents hasty patch deployments driven by temporary system panics.\"",
+        "🌟 \"An emotionally intelligent deployment window schedules releases to protect developer rest.\"",
+        "🌟 \"High EQ system engineering respects the privacy constraints of user data collections.\"",
+        "🌟 \"Developing emotional intelligence helps you navigate department shifts with minimal friction.\"",
+        "🌟 \"Emotional self-awareness transforms technical failures into actionable system upgrades.\"",
+        "🌟 \"An EQ-driven backlog framework balances immediate ticket resolutions with future platform scaling.\"",
+        "🌟 \"High EQ vendor management keeps platform integrations stable during API updates.\"",
+        "🌟 \"Understanding your squad's emotional temperature helps you introduce modern tools effectively.\"",
+        "🌟 \"Emotional intelligence lets you support your peers without absorbing their timeline stress.\"",
+        "🌟 \"Practicing regular self-reflection keeps your professional capabilities tracking forward.\"",
+        "🌟 \"Self-regulation protects your focus from being broken by sudden strategic resets.\"",
+        "🌟 \"An emotionally intelligent user policy respects customer data permissions completely.\"",
+        "🌟 \"High EQ developer operations balance rapid software iterations with structural safety.\"",
+        "🌟 \"Developing emotional intelligence expands your path toward senior technical leadership.\"",
+        "🌟 \"Emotional self-awareness helps you connect your everyday tasks with your career vision.\"",
+        "🌟 \"An EQ-focused product experience reduces user onboarding friction from day one.\"",
+        "🌟 \"High EQ engineering alignment bridges distinct technical subcultures smoothly.\"",
+        "🌟 \"Understanding group emotional patterns helps you manage teams during prolonged outages.\"",
+        "🌟 \"Emotional intelligence lets you deliver constructive architectural critiques without creating offense.\"",
+        "🌟 \"Practicing empathy helps you construct software systems accessible to all user groups.\"",
+        "🌟 \"Self-regulation keeps you grounded when sudden organizational shifts alter team structures.\"",
+        "🌟 \"An emotionally intelligent engineering team builds simple, well-documented source code.\"",
+        "🌟 \"High EQ operational dashboards track core system stability alongside team health.\"",
+        "🌟 \"Developing emotional intelligence helps you create supportive professional networks.\"",
+        "🌟 \"Emotional self-awareness is your most effective tool for preventing developer burnout.\"",
+        "🌟 \"An EQ-driven product roadmap leaves ample room for active testing and learning.\"",
+        "🌟 \"High EQ remote collaboration uses precise async updates to build peer trust.\"",
+        "🌟 \"Understanding your core motivators gives you the focus to solve intricate algorithm blocks.\"",
+        "🌟 \"Emotional intelligence helps you handle sudden priority pivots with professional composure.\"",
+        "🌟 \"Practicing active empathy helps you find the actual user needs behind brief error logs.\"",
+        "🌟 \"Self-regulation ensures your infrastructure modifications are guided by metrics, not stress.\"",
+        "🌟 \"An emotionally intelligent wiki setup organizes technical guides for easy access.\"",
+        "🌟 \"High EQ architectural boards resolve design debates using performance data, not ego.\"",
+        "🌟 \"Developing emotional intelligence helps you remain calm during high-priority system restorations.\"",
+        "🌟 \"Emotional self-awareness lets you spot when mental fatigue is affecting code modularity.\"",
+        "🌟 \"An EQ-centered issue tracker treats frustrated user reports as optimization data.\"",
+        "🌟 \"High EQ platform analysis combines quantitative log metrics with human user interviews.\"",
+        "🌟 \"Understanding organization emotional patterns lets you manage conflicting stakeholder requests safely.\"",
+        "🌟 \"Emotional intelligence empowers you to lead complex cross-functional sprints with confidence.\"",
+        "🌟 \"Practicing regular mindfulness maintains your cognitive clarity during difficult bug tracking.\"",
+        "🌟 \"Self-regulation keeps your style constructive during critical system incident reviews.\"",
+        "🌟 \"An emotionally intelligent schema design builds clear data paths that analysts appreciate.\"",
+        "🌟 \"High EQ infrastructure leadership builds deep trust and reduces engineer turnover.\"",
+        "🌟 \"Developing emotional intelligence expands your capacity to navigate enterprise adjustments.\"",
+        "🌟 \"Emotional self-awareness helps you manage complex corporate relationships with composure.\"",
+        "🌟 \"An EQ-focused onboarding plan integrates human mentorship alongside technical setups.\"",
+        "🌟 \"High EQ system metric reports focus on the operational impact behind the numbers.\"",
+        "🌟 \"Understanding your emotional limits prevents you from accepting unrealistic feature deadlines.\"",
+        "🌟 \"Emotional intelligence lets you address performance drops with clear, supportive empathy.\"",
+        "🌟 \"Practicing active listening helps you discover accurate priorities in stakeholder interviews.\"",
+        "🌟 \"Self-regulation keeps your sprint estimation logical even when deadlines loom close.\"",
+        "🌟 \"An emotionally intelligent engineering environment treats mistakes as shared system assets.\"",
+        "🌟 \"High EQ technical leadership balances feature velocity with underlying platform health.\"",
+        "🌟 \"Developing emotional intelligence helps you coordinate multi-team integration tracks smoothly.\"",
+        "🌟 \"Emotional self-awareness is the ultimate layer for building authentic career confidence.\"",
+        "🌟 \"An EQ-centered interface design accounts for varying user cognitive loads automatically.\"",
+        "🌟 \"High EQ engineering mentorship prioritizes building professional autonomy over rapid tasks.\"",
+        "🌟 \"Understanding the human response to change minimizes friction during core framework upgrades.\"",
+        "🌟 \"Emotional intelligence helps you decline low-priority feature updates with total grace.\"",
+        "🌟 \"Practicing self-regulation builds deep professional trust across separate engineering units.\"",
+        "🌟 \"An empathetic platform design ensures core tools remain usable under heavy loads.\"",
+        "🌟 \"High EQ codebase collaboration balances rapid execution with shared system ownership.\"",
+        "🌟 \"Developing emotional intelligence helps you retain your focus during company adjustments.\"",
+        "🌟 \"Emotional self-awareness allows you to lead software initiatives with clear intent.\"",
+        "🌟 \"An EQ-driven deployment pipeline focuses on creating continuous value for users.\"",
+        "🌟 \"High EQ product management reduces multi-team friction to keep releases predictable.\"",
+        "🌟 \"Understanding your emotional boundaries helps you navigate your career path sustainably.\"",
+        "🌟 \"Emotional intelligence lets you manage critical security patch notifications with total grace.\"",
+        "🌟 \"Practicing active empathy builds deep peer trust that accelerates structural migrations.\"",
+        "🌟 \"Self-regulation prevents impulsive hotfix pushes driven by short-term user panics.\"",
+        "🌟 \"An emotionally intelligent release setup schedules deployments to protect engineer sleep cycles.\"",
+        "🌟 \"High EQ data collection respects the privacy boundaries of user populations completely.\"",
+        "🌟 \"Developing emotional intelligence helps you manage team reorgs with minimal friction.\"",
+        "🌟 \"Emotional self-awareness changes technical failures into structured infrastructure upgrades.\"",
+        "🌟 \"An EQ-driven project framework balances immediate ticket resolutions with future platform health.\"",
+        "🌟 \"High EQ system integration keeps external partner tracks stable during minor updates.\"",
+        "🌟 \"Understanding your group's emotional state helps you propose new tools effectively.\"",
+        "🌟 \"Emotional intelligence lets you support team peers without taking on their timeline stress.\"",
+        "🌟 \"Practicing regular self-reflection keeps your professional capabilities tracking forward securely.\"",
+        "🌟 \"Self-regulation protects your focus from being disrupted by sudden product resets.\"",
+        "🌟 \"An emotionally intelligent product policy values user data tracking permissions explicitly.\"",
+        "🌟 \"High EQ dev-ops collaboration balances rapid software iteration with core system stability.\"",
+        "🌟 \"Developing emotional intelligence expands your path toward authentic senior technical leadership.\"",
+        "🌟 \"Emotional self-awareness helps you connect your daily engineering tasks with your career vision.\"",
+        "🌟 \"An EQ-focused application design reduces initial software adoption friction from day one.\"",
+        "🌟 \"High EQ engineering alignment bridges distinct development cultures together smoothly.\"",
+        "🌟 \"Understanding group emotional patterns helps you manage teams during prolonged system outages.\"",
+        "🌟 \"Emotional intelligence lets you deliver constructive system critiques without breaking peer morale.\"",
+        "🌟 \"Practicing empathy helps you design digital systems accessible to all user segments.\"",
+        "🌟 \"Self-regulation keeps you grounded when sudden leadership changes alter corporate divisions.\"",
+        "🌟 \"An emotionally intelligent development group produces clear, easily maintainable source code.\"",
+        "🌟 \"High EQ management dashboards monitor technical delivery metrics alongside team health markers.\"",
+        "🌟 \"Developing emotional intelligence helps you create sustainable professional networks.\"",
+        "🌟 \"Emotional self-awareness is your most effective tool for preventing developer burnout cycles.\"",
+        "🌟 \"An EQ-driven project backlog leaves ample room for active research and system learning.\"",
+        "🌟 \"High EQ remote team interaction uses precise async documentation to build group trust.\"",
+        "🌟 \"Understanding your core motivators gives you the stamina to crack complex architectural blocks.\"",
+        "🌟 \"Emotional intelligence helps you handle sudden roadmap shifts with professional composure.\"",
+        "🌟 \"Practicing active empathy helps you find the actual user needs behind brief error messages.\"",
+        "🌟 \"Self-regulation ensures your system revisions are guided by clear data, not timeline stress.\"",
+        "🌟 \"An emotionally intelligent document system organizes technical guides for rapid search access.\"",
+        "🌟 \"High EQ architecture boards settle design choices using objective data, not internal politics.\"",
+        "🌟 \"Developing emotional intelligence helps you remain calm during high-stress platform restorations.\"",
+        "🌟 \"Emotional self-awareness lets you recognize when personal fatigue is reducing code modularity.\"",
+        "🌟 \"An EQ-centered support engine treats frustrated user bugs as product optimization inputs.\"",
+        "🌟 \"High EQ system analysis combines quantitative telemetry logs with qualitative user interviews.\"",
+        "🌟 \"Understanding corporate emotional dynamics lets you navigate conflicting stakeholder goals safely.\"",
+        "🌟 \"Emotional intelligence empowers you to lead complex cross-department initiatives with confidence.\"",
+        "🌟 \"Practicing regular mindfulness protects your focus during lengthy bug tracking sessions.\"",
+        "🌟 \"Self-regulation keeps your tone constructive during critical production failure reviews.\"",
+        "🌟 \"An emotionally intelligent database configuration builds clean paths that developers love.\"",
+        "🌟 \"High EQ technical leadership builds deep professional trust and cuts squad turnover.\"",
+        "🌟 \"Developing emotional intelligence expands your capability to guide enterprise transformations.\"",
+        "🌟 \"Emotional self-awareness helps you manage complex business relationships with composure.\"",
+        "🌟 \"An EQ-focused onboarding flow prioritizes human pairing alongside developer environment setups.\"",
+        "🌟 \"High EQ operational reports highlight the human performance impact behind the raw numbers.\"",
+        "🌟 \"Understanding your emotional limits keeps you from agreeing to impossible feature deadlines.\"",
+        "🌟 \"Emotional intelligence lets you handle team performance drops with constructive empathy.\"",
+        "🌟 \"Practicing active listening helps you discover accurate priorities in stakeholder interviews.\"",
+        "🌟 \"Self-regulation keeps your sprint estimation logical even when system deadlines are close.\"",
+        "🌟 \"An emotionally intelligent tech culture treats failures as collaborative optimization data.\"",
+        "🌟 \"High EQ engineering direction balances rapid delivery targets with basic platform health.\"",
+        "🌟 \"Developing emotional intelligence helps you run multi-team integration tracks smoothly.\"",
+        "🌟 \"Emotional self-awareness is the ultimate requirement for cultivating authentic workplace authority.\"",
+        "🌟 \"An EQ-centered product design lowers user mental strain automatically during workflows.\"",
+        "🌟 \"High EQ developer mentoring prioritizes building technical independence above simple tasks.\"",
+        "🌟 \"Understanding the human side of change limits friction during complex framework migrations.\"",
+        "🌟 \"Emotional intelligence helps you decline out-of-scope feature updates with genuine grace.\"",
+        "🌟 \"Practicing self-regulation builds long-term professional trust across distributed development hubs.\"",
+        "🌟 \"An empathetic application design ensures critical systems stay accessible during high traffic.\"",
+        "🌟 \"High EQ codebase coordination balances fast feature shipping with clean system ownership.\"",
+        "🌟 \"Developing emotional intelligence helps you preserve your focus during structural adjustments.\"",
+        "🌟 \"Emotional self-awareness allows you to lead engineering sprints with unambiguous intent.\"",
+        "🌟 \"An EQ-driven delivery pipeline focuses on creating continuous clear value for users.\"",
+        "🌟 \"High EQ product leadership reduces cross-team friction to keep deployments predictable.\"",
+        "🌟 \"Understanding your emotional boundaries helps you manage your engineering path sustainably.\"",
+        "🌟 \"Emotional intelligence lets you manage difficult vulnerability patch disclosures with total grace.\"",
+        "🌟 \"Practicing active empathy builds deep peer trust that speeds up database migrations.\"",
+        "🌟 \"Self-regulation prevents rushed server updates triggered by temporary user complaints.\"",
+        "🌟 \"An emotionally intelligent maintenance window schedules deployments to protect team rest cycles.\"",
+        "🌟 \"High EQ data management models respect the specific privacy boundaries of user info completely.\"",
+        "🌟 \"Developing emotional intelligence helps you handle engineering reorgs with minimal friction.\"",
+        "🌟 \"Emotional self-awareness transforms sudden system crashes into structured framework upgrades.\"",
+        "🌟 \"An EQ-driven timeline balances rapid bug fixes with necessary future platform scaling.\"",
+        "🌟 \"High EQ partner management keeps external integrations stable during major API updates.\"",
+        "🌟 \"Understanding your team's collective mood helps you introduce fresh workflows smoothly.\"",
+        "🌟 \"Emotional intelligence lets you support your peers without taking on their project stress.\"",
+        "🌟 \"Practicing regular self-reflection guarantees your technical capabilities keep tracking forward.\"",
+        "🌟 \"Self-regulation protects your focus from being fragmented by shifting product definitions.\"",
+        "🌟 \"An emotionally intelligent data framework values customer tracking choice parameters explicitly.\"",
+        "🌟 \"High EQ dev-ops routines balance rapid software delivery with underlying platform safety.\"",
+        "🌟 \"Developing emotional intelligence expands your trajectory toward senior technical management.\"",
+        "🌟 \"Emotional self-awareness helps you map your daily coding tasks to your long-term career vision.\"",
+        "🌟 \"An EQ-focused user journey cuts down initial application adoption friction significantly.\"",
+        "🌟 \"High EQ engineering collaboration integrates separate development micro-cultures smoothly.\"",
+        "🌟 \"Understanding collective emotional habits helps you guide squads during major system outages.\"",
+        "🌟 \"Emotional intelligence lets you offer deep code critiques without breaking developer morale.\"",
+        "🌟 \"Practicing empathy helps you engineer accessible software setups for all target populations.\"",
+        "🌟 \"Self-regulation keeps you steady when unexpected corporate shifts alter team structures.\"",
+        "🌟 \"An emotionally intelligent development group builds clean, self-documenting code systems.\"",
+        "🌟 \"High EQ performance tracking monitors development output alongside core team wellness.\"",
+        "🌟 \"Developing emotional intelligence helps you build authentic, long-lasting developer networks.\"",
+        "🌟 \"Emotional self-awareness is your primary mechanism for identifying professional burnout signs.\"",
+        "🌟 \"An EQ-driven product roadmap leaves clear space for exploratory testing and technical learning.\"",
+        "🌟 \"High EQ remote collaboration uses clear async coordination to build deep group trust.\"",
+        "🌟 \"Understanding your true motivators gives you the drive to fix convoluted database queries.\"",
+        "🌟 \"Emotional intelligence lets you handle unexpected roadmap shifts with professional composure.\"",
+        "🌟 \"Practicing active empathy lets you see the true user requirements behind short bug tickets.\"",
+        "🌟 \"Self-regulation ensures your software modifications are guided by metrics, not deploy anxiety.\"",
+        "🌟 \"An emotionally intelligent wiki setup structures system guides for rapid information lookups.\"",
+        "🌟 \"High EQ engineering review boards settle design disputes using performance facts, not politics.\"",
+        "🌟 \"Developing emotional intelligence helps you remain levelheaded during critical cloud restores.\"",
+        "🌟 \"Emotional self-awareness lets you recognize when deep fatigue is affecting system architecture.\"",
+        "🌟 \"An EQ-centered helpdesk engine processes angry customer reports as system improvement ideas.\"",
+        "🌟 \"High EQ analytics combines hard operational telemetry with direct qualitative user feedback.\"",
+        "🌟 \"Understanding organization emotional currents lets you balance competing stakeholder inputs safely.\"",
+        "🌟 \"Emotional intelligence empowers you to lead complex cross-functional sprints with confidence.\"",
+        "🌟 \"Practicing regular mindfulness preserves your focus during prolonged error tracking blocks.\"",
+        "🌟 \"Self-regulation keeps your tone constructive during high-stakes post-incident reviews.\"",
+        "🌟 \"An emotionally intelligent data architecture builds clean workflows that analysts appreciate.\"",
+        "🌟 \"High EQ technical leadership builds deep professional trust and cuts squad turnover.\"",
+        "🌟 \"Developing emotional intelligence expands your capability to navigate corporate transformations.\"",
+        "🌟 \"Emotional self-awareness helps you manage complex business relationships with composure.\"",
+        "🌟 \"An EQ-focused onboarding flow prioritizes human pairing alongside developer environment setups.\"",
+        "🌟 \"High EQ operational reports highlight the human performance impact behind the raw numbers.\"",
+        "🌟 \"Understanding your emotional limits keeps you from agreeing to impossible feature deadlines.\"",
+        "🌟 \"Emotional intelligence lets you handle team performance drops with constructive empathy.\"",
+        "🌟 \"Practicing active listening helps you discover accurate priorities in stakeholder interviews.\"",
+        "🌟 \"Self-regulation keeps your sprint estimation logical even when system deadlines are close.\"",
+        "🌟 \"An emotionally intelligent tech culture treats failures as collaborative optimization data.\"",
+        "🌟 \"High EQ engineering direction balances rapid delivery targets with basic platform health.\"",
+        "🌟 \"Developing emotional intelligence helps you run multi-team integration tracks smoothly.\"",
+        "🌟 \"Emotional self-awareness is the ultimate requirement for cultivating workplace success.\""
+    ];
+
+    let currentIndex = 0;
+
+    function startApp() {
+        document.getElementById('landing-page').style.display = 'none';
+        document.getElementById('main-app').style.display = 'block';
+        
+        // Check if there is a saved note position from last time
+        const savedIndex = localStorage.getItem('lastReadNoteIndex');
+        
+        if (savedIndex !== null) {
+            let nextIndex = parseInt(savedIndex) + 1;
+            // Loop back cleanly if user reached the absolute end of the 700 notes deck
+            if (nextIndex >= notes.length) {
+                nextIndex = 0;
+            }
+            currentIndex = nextIndex;
+        } else {
+            currentIndex = 0; 
+        }
+        
+        updateCard();
+    }
+
+    function goBack() {
+        document.getElementById('main-app').style.display = 'none';
+        document.getElementById('landing-page').style.display = 'block';
+    }
+
+    function updateCard() {
+        document.getElementById('note-box').innerText = notes[currentIndex];
+        document.getElementById('prev-btn').disabled = (currentIndex === 0);
+        document.getElementById('next-btn').disabled = (currentIndex === notes.length - 1);
+        
+        // Save position continuously inside localStorage
+        localStorage.setItem('lastReadNoteIndex', currentIndex);
+    }
+
+    function nextNote() {
+        if (currentIndex < notes.length - 1) {
+            currentIndex++;
+            updateCard();
+        }
+    }
+
+    function prevNote() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCard();
+        }
+    }
+</script>
+</body>
+</html>

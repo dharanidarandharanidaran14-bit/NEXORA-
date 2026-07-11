@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Skills - AI Practice & Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <a href="IT home.html" class="home-btn">
+     Home
+</a>
+    <style>
+        :root {
+            --primary: #0062ff;
+            --primary-dark: #0046b8;
+            --bg-dark: #9cb1e6;
+            --card-bg: #2956b8;
+            --text-muted: #36322f;
+            --text-light: #9ca3af;
+
+        }
+
+        * {
+            margin: 2px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+.home-btn{
+    font-family: 'JetBrains Mono', monospace;
+    text-decoration:none;
+    color:rgb(28, 13, 159);
+    font-weight:bold;
+      
+}
+
+.home-btn:hover{
+    background:#30363c;
+}
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* PREMIUM APP CARD DESIGN FROM 1000064500.JPG */
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .premium-card {
+            background-color: #274286;
+            width: 100%;
+            max-width: 540px;
+            border-radius: 4px;
+            padding: 45px 40px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Accent top blue indicator line */
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110px;
+            height: 4px;
+            background-color: #0062ff;
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: var(--text-light);
+            word-spacing: 0.2em;
+        }
+
+        .diagonal-arrow {
+            color: var(--text-light);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .premium-card:hover .diagonal-arrow {
+            transform: translate(3px, -3px);
+            color: #ffffff;
+        }
+
+        .card-body-title {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .icon-box-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .icon-speech-bubble {
+            color: #0062ff;
+            font-size: 1.6rem;
+        }
+
+        .card-main-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
+
+        .card-description-text {
+            color: #8fa0dd;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.75;
+            margin-bottom: 45px;
+        }
+
+        .start-quiz-trigger-btn {
+            background: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #e65e29;
+
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            font-weight: 500;
+            cursor: pointer;
+            text-transform: uppercase;
+            padding: 0;
+            transition: color 0.2s ease;
+        }
+
+        .start-quiz-trigger-btn:hover {
+            color: #3b82f6;
+        }
+
+        /* INTERACTIVE CONFIGURATION FORM POPUP */
+        .quiz-box-wrapper {
+            background-color: #05070c;
+            padding: 35px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid rgba(0, 98, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 98, 255, 0.15);
+        }
+
+        .quiz-box-wrapper h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .quiz-box-wrapper label { display: block; margin-top: 15px; font-size: 13px; color: var(--text-light); text-align: left; }
+        
+        .quiz-box-wrapper select, .quiz-box-wrapper button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #111827;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .quiz-box-wrapper button {
+            background-color: var(--primary);
+            font-weight: 600;
+            border: none;
+            margin-top: 20px;
+        }
+        .quiz-box-wrapper button:hover { background-color: var(--primary-dark); }
+
+        .hidden { display: none !important; }
+        .options-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        
+        .option-btn {
+            background-color: #111827 !important;
+            text-align: left !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            line-height: 1.5;
+            padding: 14px 18px !important;
+            border-radius: 6px !important;
+            color: #d1d5db !important;
+        }
+
+        .option-btn:hover { border-color: var(--primary) !important; background-color: #1f2937 !important; color: #ffffff !important; }
+        #timer { font-size: 18px; color: #ef4444; font-family: 'JetBrains Mono', monospace; }
+        .score-tracker { font-size: 14px; color: var(--primary); font-weight: bold; }
+        #question-text { font-size: 1.1rem; margin-top: 15px; line-height: 1.5; text-align: left; color: #f3f4f6; }
+        #final-marks { color: #34d399; font-size: 48px; margin: 10px 0; font-family: 'Space Grotesk', sans-serif; }
+
+        footer { text-align: center; padding: 30px 20px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.03); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-layer-group"></i> NEXORA </div>
+    </header>
+
+    <div class="main-container">
+        <!-- RENDER INTRO LANDING CARD INSPIRED BY 1000064500.JPG -->
+        <div class="premium-card" id="landing-card">
+            <div class="card-header-row">
+                <div class="quiz-meta">02 / QUIZ</div>
+                <a href="javascript:void(0)" class="diagonal-arrow" onclick="revealConfigOptions()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            
+            <div class="card-body-title">
+                <div class="icon-box-wrapper">
+                    <i class="fa-regular fa-comment icon-speech-bubble"></i>
+                </div>
+                <h1 class="card-main-heading">02 / COMMUNICATION</h1>
+            </div>
+
+            <p class="card-description-text">
+                Grammar, vocabulary and IT-workplace scenarios — emails, standups, code reviews. With instant explanations.
+            </p>
+
+            <button class="start-quiz-trigger-btn" onclick="revealConfigOptions()">
+                <i class="fa-regular fa-clock"></i> Start Quiz
+            </button>
+        </div>
+
+        <!-- MERGED INTERACTIVE RUNTIME APP -->
+        <div class="quiz-box-wrapper hidden" id="quiz-config-panel">
+            <div id="page1">
+                <h2>Configure Assessment</h2>
+                <label for="qCount">Select Total Scenarios:</label>
+                <select id="qCount">
+                    <option value="10">10 Questions</option>
+                    <option value="20">20 Questions</option>
+                    <option value="30">30 Questions</option>
+                </select>
+                
+                <label for="timerVal">Time Interval Per Limit:</label>
+                <select id="timerVal">
+                    <option value="30">30 Seconds</option>
+                    <option value="45">45 Seconds</option>
+                    <option value="60">60 Seconds</option>
+                </select>
+                <button onclick="startQuiz()">Start Practice now</button>
+            </div>
+
+            <div id="page2" class="hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span id="progress" style="color: var(--text-light); font-size: 13px;">Question 1</span>
+                    <span id="live-score" class="score-tracker">Marks: 0</span>
+                    <span id="timer">30s</span>
+                </div>
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 15px;">
+                <h3 id="question-text">Building custom workspace vectors...</h3>
+                <div class="options-container" id="options"></div>
+            </div>
+
+            <div id="page3" class="hidden">
+                <h2>Session Complete</h2>
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.08); margin: 20px 0;">
+                <h1 id="final-marks">0/0</h1>
+                <h3 id="final-percentage" style="color: var(--text-light); font-weight: 400; margin-bottom: 10px;">Percentage: 0%</h3>
+                <p id="performance-feedback" style="font-style: italic; color: #9ca3af; font-size: 14px; line-height: 1.5;"></p>
+                <button onclick="retryQuiz()" style="background-color: transparent; border: 1px solid rgba(255,255,255,0.2); color: white;">Run Alternative Match 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 IT INTELLITECH | Designed for Student Communication Excellence</p>
+    </footer>
+
+    <script>
+        const people = ["Your manager", "Your coworker", "Your client", "Your professor", "Your group member", "Your mentor", "The technical lead"];
+        const places = ["during a critical sprint review", "in the conference room", "over a project coordination call", "at the cafeteria", "during a formal code evaluation"];
+
+        const datasets = [
+            { id: "c1", text: "shouts using ALL CAPITAL LETTERS in a public channel", fix: "Ask them nicely to jump on a quick sync call using quiet, regular speaking tones", reason: "De-escalating public structural text blocks to an unhurried vocal call mitigates conflict vectors.", bads: ["Reply using larger bold capitals to show absolute dominance", "Block them completely and notify HR without warning", "Pretend you didn't notice"] },
+            { id: "c2", text: "speaks at double speed using heavy local slang expressions", fix: "Politely step in and ask if they can clarify key goals sequentially using basic terminology", reason: "Slowing down vocal speed keeps semantic operational data accurate.", bads: ["Nod and smile while guessing what their delivery meant", "Loudly mimic their slang expressions to build cheap alignment", "Walk away immediately mid-sentence"] },
+            { id: "c3", text: "whispers so softly that you can barely register their words", fix: "Acknowledge their effort and say: 'I want to catch all of this, could you speak a bit louder?'", reason: "Ensuring an audible acoustic volume is essential for standard information processing loops.", bads: ["Nod randomly and invent their requirements on the fly", "Completely dismiss their updates to save time", "Start whispering back"] },
+            { id: "c4", text: "deploys highly condescending and passive-aggressive tones", fix: "Maintain a flat, objective tone and calmly ask: 'Are there parts of our plan you want to adjust?'", reason: "Using a completely neutral, systematic tone isolates toxic inflections from actual operational needs.", bads: ["Unleash a sharper counter-sarcastic remark instantly", "Break into visible panic or emotional distress", "Ignore them and complain to other team members"] },
+            { id: "c5", text: "constantly digresses from the main agenda item to tell personal anecdotes", fix: "Gently intervene: 'That's an interesting point, let's capture that separately and pivot back to our primary deliverable'", reason: "Healthy structural redirection blocks process drift while preserving coworker psychological safety.", bads: ["Interrupt with a hostile stop command", "Let them derail the session entirely for hours", "Suddenly stop replying"] },
+            { id: "c6", text: "scrolls through their phone feed while you present key project updates", fix: "Pause briefly to gain focus, then ask: 'Would it be better to reschedule this sync for later?'", reason: "Intentional silence combined with a flexible choice re-establishes focus parameters naturally.", bads: ["Snatch the smart device out of their hands", "Keep talking rapidly while hiding your extreme frustration", "Throw your presentation notes down"] },
+            { id: "c7", text: "cuts you off continuously before you can finish your sentences", fix: "Wait out their interruption, then calmly assert: 'I have two quick points to complete that thought, here they are...'", reason: "Structured verbal self-assertion safeguards transmission channels without escalating interpersonal drama.", bads: ["Yell over them until they drop their voice", "Drop out of the discussion entirely and shut down", "Physically leave the meeting space"] },
+            { id: "c8", text: "nods perfectly but displays a completely empty, blank facial expression", fix: "Stop the presentation and request validation: 'What are your thoughts on this specific component?'", reason: "Proactive verification checkpoints highlight passive listening before errors occur.", bads: ["Assume full compliance and proceed blindly", "Snap your fingers directly at their eyes", "Change the slide immediately without any validation"] },
+            { id: "c9", text: "submits a mission-critical report riddled with fundamental formatting mistakes", fix: "Schedule a private review to review template standards and build a tracking checklist", reason: "Providing private structural feedback protects psychological safety while boosting operational precision.", bads: ["Fix it secretly while building intense resentment", "Post their formatted report publicly to enforce standards through shame", "Delete their text blocks completely"] },
+            { id: "c10", text: "becomes defensive and argumentative when you flag a clear calculation error", fix: "Reframe the edit: 'We just need to ensure the system passes our automated test harness flawlessly'", reason: "Anchoring code changes to objective test systems removes personal ego friction.", bads: ["Tell them they are way too sensitive to survive here", "Take the repository access away from them immediately", "Stop pointing out critical faults"] }
+        ];
+
+        let permanentlyUsedIds = [];
+        let totalQuestionsSelected = 0;
+        let currentIdx = 0;
+        let score = 0;
+        let currentQuestionObject = null;
+        let timerInterval;
+        let timeLeft = 0;
+        let runtimePool = [];
+
+        function revealConfigOptions() {
+            document.getElementById('landing-card').classList.add('hidden');
+            document.getElementById('quiz-config-panel').classList.remove('hidden');
+        }
+
+        function startQuiz() {
+            totalQuestionsSelected = parseInt(document.getElementById('qCount').value);
+            timeLeft = parseInt(document.getElementById('timerVal').value);
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+
+            currentIdx = 0;
+            score = 0;
+            runtimePool = [];
+
+            while(runtimePool.length < totalQuestionsSelected) {
+                let filteredItems = datasets.filter(item => !permanentlyUsedIds.includes(item.id));
+                if (filteredItems.length === 0) {
+                    permanentlyUsedIds = [];
+                    filteredItems = [...datasets];
+                }
+                filteredItems.sort(() => Math.random() - 0.5);
+                for(let item of filteredItems) {
+                    if(runtimePool.length < totalQuestionsSelected) {
+                        runtimePool.push(item);
+                        permanentlyUsedIds.push(item.id);
+                    }
+                }
+            }
+
+            runtimePool.sort(() => Math.random() - 0.5);
+            generateAndShowQuestion();
+        }
+
+        function generateAndShowQuestion() {
+            if (currentIdx >= totalQuestionsSelected) {
+                finishQuiz();
+                return;
+            }
+
+            const scenario = runtimePool.pop();
+            const pName = people[Math.floor(Math.random() * people.length)];
+            const pPlace = places[Math.floor(Math.random() * places.length)];
+
+            document.getElementById('live-score').innerText = `Marks: ${score}`;
+            document.getElementById('progress').innerText = `Scenario ${currentIdx + 1} of ${totalQuestionsSelected}`;
+
+            const questionText = `${pName}, ${pPlace}, ${scenario.text}. What is the best thing to do?`;
+            const rightAns = scenario.fix;
+            
+            let choices = [rightAns, ...scenario.bads];
+            choices.sort(() => Math.random() - 0.5);
+
+            currentQuestionObject = {
+                question: questionText,
+                options: choices,
+                answer: rightAns,
+                reason: scenario.reason
+            };
+
+            document.getElementById('question-text').innerText = questionText;
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            
+            choices.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => handleAnswer(opt === rightAns);
+                optionsDiv.appendChild(btn);
+            });
+
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            let time = timeLeft;
+            document.getElementById('timer').innerText = time + "s";
+
+            timerInterval = setInterval(() => {
+                time--;
+                document.getElementById('timer').innerText = time + "s";
+                if(time <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Out of time! ❌\n\nCorrect Strategy: " + currentQuestionObject.answer + "\n\nReason: " + currentQuestionObject.reason);
+                    handleAnswer(false, true);
+                }
+            }, 1000);
+        }
+
+        function handleAnswer(isCorrect, isTimeout = false) {
+            clearInterval(timerInterval);
+            if (!isTimeout) {
+                if (isCorrect) {
+                    score++;
+                    alert("Correct Strategy! +1 Mark 🎉\n\nReason: " + currentQuestionObject.reason);
+                } else {
+                    alert("Incorrect Action! ❌\n\nThe Optimal Strategy is: " + currentQuestionObject.answer + "\n\nReason: " + currentQuestionObject.reason);
+                }
+            }
+            currentIdx++;
+            generateAndShowQuestion();
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.remove('hidden');
+            document.getElementById('final-marks').innerText = `${score} / ${totalQuestionsSelected}`;
+            
+            const percentage = Math.round((score / totalQuestionsSelected) * 100);
+            document.getElementById('final-percentage').innerText = `Percentage: ${percentage}%`;
+
+            let feedback = "";
+            if (percentage >= 80) feedback = "Exceptional structural alignment! Your professional communication metrics are top-tier! 🌟";
+            else if (percentage >= 50) feedback = "Solid resolution capabilities! Standard clearance achieved successfully. 👍";
+            else feedback = "Review tactical error paths to refine organizational alignment parameters. 📚";
+            
+            document.getElementById('performance-feedback').innerText = feedback;
+        }
+
+        function retryQuiz() {
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
